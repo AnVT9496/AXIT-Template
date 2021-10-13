@@ -1,3 +1,5 @@
+var v = 1; //set velocity
+
 $(document).ready(function(){
     $(window).scroll(function(){
         if(this.scrollY > 20){
@@ -12,7 +14,103 @@ $(document).ready(function(){
         $('.menu-btn i').toggleClass("active")
     })
 });
-var v = 1;
+
+
+//active navbar
+let mainNavLinks = document.querySelectorAll("nav ul li a");
+let mainSections = document.querySelectorAll("main section");
+
+let lastId;
+let cur = [];
+
+// This should probably be throttled.
+// Especially because it triggers during smooth scrolling.
+// https://lodash.com/docs/4.17.10#throttle
+// You could do like...
+// window.addEventListener("scroll", () => {
+//    _.throttle(doThatStuff, 100);
+// });
+// Only not doing it here to keep this Pen dependency-free.
+
+window.addEventListener("scroll", event => {
+  let fromTop = window.scrollY;
+
+  mainNavLinks.forEach(link => {
+    let section = document.querySelector(link.hash);
+
+    if (
+      section.offsetTop <= fromTop &&
+      section.offsetTop + section.offsetHeight > fromTop
+    ) {
+      link.classList.add("current");
+    } else {
+      link.classList.remove("current");
+    }
+  });
+});
+
+
+//tab transition
+// Hàm active tab nào đó
+function activeTab(obj)
+{
+    // Xóa class active tất cả các tab
+    $('.tab-wrapper ul li').removeClass('active');
+ 
+    // Thêm class active vòa tab đang click
+    $(obj).addClass('active');
+ 
+    // Lấy href của tab để show content tương ứng
+    var id = $(obj).find('a').attr('href');
+ 
+    // Ẩn hết nội dung các tab đang hiển thị
+    $('.tab-item').hide();
+ 
+    // Hiển thị nội dung của tab hiện tại
+    $(id) .show();
+}
+// Sự kiện click đổi tab
+$('.tab li').click(function(){
+    activeTab(this);
+    return false;
+});
+// Active tab đầu tiên khi trang web được chạy
+activeTab($('.tab li:first-child'));
+
+$(document).ready(function()
+{
+    // Hàm active tab nào đó
+    function activeTab(obj)
+    {
+        // Xóa class active tất cả các tab
+        $('.tab-wrapper ul li').removeClass('active');
+ 
+        // Thêm class active vòa tab đang click
+        $(obj).addClass('active');
+ 
+        // Lấy href của tab để show content tương ứng
+        var id = $(obj).find('a').attr('href');
+ 
+        // Ẩn hết nội dung các tab đang hiển thị
+        $('.tab-item').hide();
+ 
+        // Hiển thị nội dung của tab hiện tại
+        $(id) .show();
+    }
+ 
+    // Sự kiện click đổi tab
+    $('.tab li').click(function(){
+        activeTab(this);
+        return false;
+    });
+ 
+    // Active tab đầu tiên khi trang web được chạy
+    activeTab($('.tab li:first-child'));
+});
+
+
+
+//disable back to top button
 
 toggleBackToTop();
 $(window).scroll(function(event) {
@@ -31,6 +129,7 @@ $(window).scroll(function(event) {
 });
 
 
+// back to top button
 
 $(".back-to-top").click(function(event) {
 	/* Act on the event */
@@ -49,6 +148,9 @@ function toggleBackToTop(){
 		$(".back-to-top").fadeIn();
 	}
 }
+
+
+// scroll top event
 
 $("nav ul li a, #banner a").click(function(event) {
 	/* Act on the event */

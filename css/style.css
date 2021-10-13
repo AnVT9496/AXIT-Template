@@ -66,15 +66,22 @@
     margin-left: 48px;
 }
 .navbar .menu li a {
-    color: #b8b8b8;
+    color: white;   
     font-size: 14px;
     font-weight: bold;
     font-family: 'Open Sans', sans-serif;
     transition:  color 0.3 ease;
 }
+nav ul li a.current {
+    background: var(--orange);
+    padding: 10px;
+}
 .navbar .menu li a:hover{
     color: var(--orange);
 }
+
+/* active menu-item when scrolldown */
+
 
 /* menu btn styling */
 .menu-btn {
@@ -184,6 +191,99 @@
 /* banner css end */
 
 /* tab about css start */
+.about {
+    height: 600px;
+    padding: 100px 0;
+}
+.about .row{
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.about .tab-wrapper{
+    display: flex;
+}
+.about .tab-wrapper .tab{
+    width: 17%;
+}    
+
+.tab-wrapper ul li{
+    list-style: none;
+    margin: 0 5px;
+}
+.tab-wrapper ul li a  {
+    color: white;
+    width: 112px;
+    height: 112px;
+    line-height: 112px;
+    display: block;
+    background: var(--black);
+    border-bottom: 1px solid #fff;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    transition: all linear 0.15s;
+}
+
+.tab-wrapper ul li.active a{
+    background: var(--orange);
+}
+.tab-wrapper ul li a{
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.tab-content{
+    padding: 20px;
+}
+.tab-item{
+    display: none;
+}
+.tab-item-flex {
+    display: flex;   
+}
+.tab-item-flex .content {
+    width: 60%;
+    padding-left: 50px;
+}
+.tab-item-flex .content h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+    padding-bottom: 50px;
+    font-family: sans-serif;
+}
+.tab-item-flex .content p {
+    padding-bottom: 45px;
+}
+.tab-item-flex .content button {
+    width: 121px;
+    height: 46px;
+    line-height: 46px;
+    text-align: center;
+    color: #fff;
+    background: #ff8b38;
+    border-radius: 3px;
+    font-size: 15px;
+    display: block;
+    outline:0;
+    border: 0;
+    cursor: pointer;
+}
+.tab-item-flex .content button:hover {
+    background: var(--black);
+}
+.tab-item-flex .picture {
+    width: 40%;
+    text-align: right;
+}
+img {
+    display: block;
+    max-width:400px;
+    max-height:350px;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+  }
 /* tab about css end */
 
 
@@ -636,6 +736,32 @@ footer .box a {
     .contact-us .row-form{
         display: block;
     }
+    .about .tab-wrapper {
+        display: block;
+    }
+    .about .tab-wrapper .tab{
+       display: flex;
+       width:100%;
+       justify-content: center;
+    }
+    .about .tab-wrapper ul li a {
+        color: white;
+        width: 112px;
+        height: 50px;
+        line-height: 50px;
+        display: block;
+        border-bottom: 1px solid #fff;
+        font-size: 15px;
+        font-weight: 700;
+        text-align: center;
+        transition: all linear 0.15s; 
+    }
+    .tab-item-flex .picture img{
+        text-align: right;
+        max-width: 200px;
+        max-height: 400px;
+    }
+
 
 @media (max-width: 546px){
     .max-width {
@@ -721,6 +847,35 @@ footer .box a {
     .contact-us .row-form{
         display: block;
     }
+    .about .tab-wrapper {
+        display: block;
+    }
+    .about .tab-wrapper .tab{
+       display: flex;
+       width:100%;
+       justify-content: center;
+    }
+    .about .tab-wrapper ul li a {
+        color: white;
+        width: 112px;
+        height: 50px;
+        line-height: 50px;
+        display: block;
+        border-bottom: 1px solid #fff;
+        font-size: 15px;
+        font-weight: 700;
+        text-align: center;
+        transition: all linear 0.15s; 
+    }
+    .tab-item-flex .picture img{
+        text-align: right;
+        max-width: 200px;
+        max-height: 400px;
+    }
+    .tab-item-flex .content p {
+        padding-bottom: 10px;
+    }
+
 }
 }
 
@@ -738,5 +893,30 @@ footer .box a {
     }
     .contact-us .row-form{
         display: block;
+    }
+    .about .tab-wrapper {
+        display: block;
+    }
+    .about .tab-wrapper .tab{
+       display: flex;
+       width:100%;
+       justify-content: center;
+    }
+    .about .tab-wrapper ul li a {
+        color: white;
+        width: 112px;
+        height: 50px;
+        line-height: 50px;
+        display: block;
+        border-bottom: 1px solid #fff;
+        font-size: 15px;
+        font-weight: 700;
+        text-align: center;
+        transition: all linear 0.15s; 
+    }
+    .tab-item-flex .picture img{
+        text-align: right;
+        max-width: 50px;
+        max-height: 400px;
     }
 }
